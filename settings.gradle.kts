@@ -1,7 +1,10 @@
 pluginManagement {
     repositories {
         google()
-        mavenCentral()
+        mavenCentral {
+            url = uri("https://maven.pkg.jetbrains.space/public/p/ktor/eap")
+        }
+        maven { url = uri("https://jitpack.io") }
         gradlePluginPortal()
     }
 }
