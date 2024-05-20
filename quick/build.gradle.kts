@@ -1,17 +1,18 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("maven-publish")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    id(libs.plugins.maven.publish.get().pluginId)
 }
 
+fun Any?.getInt() = this?.toString()?.toIntOrNull()
+fun Any?.getString() = this?.toString()
+
 android {
-    namespace = "com.n0te15m3.quick"
-    compileSdk = 34
+    namespace = properties["namespace"].getString()
+    compileSdk = properties["compileSdk"].getInt()
 
     defaultConfig {
-        minSdk = 24
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        minSdk = properties["minSdk"].getInt()
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -26,13 +27,13 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = properties["jvmTarget"].toString()
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.0"
+        kotlinCompilerExtensionVersion = properties["kotlinComposeCompilerExtension"].toString()
     }
 }
 
@@ -41,29 +42,27 @@ afterEvaluate {
         publishing.publications.create(variant.name, MavenPublication::class.java) {
             from(components.findByName(variant.name))
 
-            groupId = "com.github.n0te15m3"
-            artifactId = "quick-image"
-            version = "1.0.0"
+            groupId = properties["publishGroupId"].toString()
+            artifactId = properties["publishArtifactId"].toString()
+            version = properties["publishVersion"].toString()
         }
     }
 }
 
 dependencies {
+    implementation(libs.android.material)
 
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("com.google.android.material:material:1.11.0")
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.lifecycle)
 
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-    implementation("androidx.activity:activity-compose:1.8.2")
-    implementation(platform("androidx.compose:compose-bom:2023.08.00"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
+    implementation(platform(libs.jp.compose.bom))
+    implementation(libs.jp.compose.ui)
+    implementation(libs.jp.compose.ui.graphic)
+    implementation(libs.jp.compose.material3)
+    implementation(libs.jp.compose.runtime)
 
-    implementation("io.ktor:ktor-client-android:2.3.9")
-    implementation("io.ktor:ktor-client-core:2.3.9")
-    implementation("io.ktor:ktor-client-serialization:2.3.9")
-    implementation("io.ktor:ktor-client-logging:2.3.9")
+    implementation(libs.ktor.client.android)
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.log)
+    implementation(libs.ktor.client.json)
 }

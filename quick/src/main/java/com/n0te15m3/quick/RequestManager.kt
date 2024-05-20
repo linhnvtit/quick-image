@@ -9,7 +9,6 @@ import com.n0te15m3.quick.disk_manager.StorageHelper
 import com.n0te15m3.quick.utils.QuickLog
 import com.n0te15m3.quick.utils.isValidUrl
 import com.n0te15m3.quick.utils.sha256
-import com.tl.speedimage.FetchingState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel

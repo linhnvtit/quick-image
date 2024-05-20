@@ -4,7 +4,6 @@ import android.content.Context
 import com.n0te15m3.quick.cache.CacheStrategy
 import com.n0te15m3.quick.cache.InMemoryCacheStrategy
 import com.n0te15m3.quick.utils.QuickLog
-import com.tl.speedimage.FetchingState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob

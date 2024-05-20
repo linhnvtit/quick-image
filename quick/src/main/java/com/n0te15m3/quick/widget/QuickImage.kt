@@ -18,7 +18,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import com.tl.speedimage.FetchingState
+import com.n0te15m3.quick.FetchingState
 import com.n0te15m3.quick.Quick
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest

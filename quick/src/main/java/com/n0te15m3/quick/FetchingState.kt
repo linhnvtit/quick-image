@@ -1,4 +1,4 @@
-package com.tl.speedimage
+package com.n0te15m3.quick
 
 import androidx.compose.ui.graphics.ImageBitmap
 import com.n0te15m3.quick.DataSource

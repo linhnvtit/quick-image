@@ -17,5 +17,9 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "quickimage"
-include(":app")
-include(":quick")
+
+val app: String by settings
+val quick: String by settings
+
+include(app)
+include(quick)
