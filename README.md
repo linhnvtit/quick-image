@@ -5,7 +5,7 @@ QuickImage is a lightweight Android library designed for image usage in Jetpack 
 # Gradle
 ```groovy
 dependencies {
-    implementation 'com.github.linhnvtit.quick-image:5607bf1625'
+    implementation 'com.github.linhnvtit:quick-image:1.0.0'
 }
 ```
 ```groovy
@@ -16,15 +16,15 @@ repositories {
 ```
 
 # Usage
-Using QuickImage instead of normal Image when you want to load image from remote source.
+- Using QuickImage when you want to load image from remote source.
 ```kotlin
 QuickImage(
   modifier = Modifier,
   url = "https://avatars.githubusercontent.com/u/47845610?v=4"
 )
 ```
-
-QuickImage also have components for general purposes, which is a wrapper of default Image
+- QuickImage also supports displaying placeholders while images are loading or if loading fails with `loadingPlaceholder` and `failurePlaceholder`
+- QuickImage also have components for general purposes, which is a wrapper of default Image
 ```kotlin
 QuickImage(
     modifier = Modifier,
