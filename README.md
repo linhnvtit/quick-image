@@ -1,5 +1,5 @@
 # Quick Image
-QuickImage is a lightweight Android library designed for image usage in Jetpack Compose. With QuickImage, you can efficiently use images from remote sources. This library loads images with considerably higher speed and lower resource consumption compared to others.
+QuickImage is a lightweight Android library designed for image usage in Jetpack Compose. With QuickImage, you can efficiently use images from remote sources.
 
 
 # Gradle
